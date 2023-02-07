@@ -1,6 +1,3 @@
-# x16Calc
-
-
 # 💾 x16Calc — the best sorting tool for system programmers
 
 ✨ **A simple program for Windows for working with hexadecimal numbers.**
