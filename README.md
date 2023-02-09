@@ -12,4 +12,5 @@ Also supports command line arguments:
 
 Download link - https://github.com/DosX-dev/x16Calc/releases/tag/Stable
 
+![Scr1](https://raw.githubusercontent.com/DosX-dev/x16Calc/main/pic1.jpg)
 ![Scr1](https://raw.githubusercontent.com/DosX-dev/x16Calc/main/presentation.jpg)
