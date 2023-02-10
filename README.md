@@ -1,3 +1,6 @@
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/DosX-dev/x16Calc.svg)](https://github.com/DosX-dev/x16Calc/releases)
+[![OS Windows](https://img.shields.io/badge/os-windows-brightgreen)](https://github.com/DosX-dev/x16Calc/releases)
+
 # 💾 x16Calc — the best sorting tool for system programmers
 
 ✨ **A simple program for working with hexadecimal numbers.**
