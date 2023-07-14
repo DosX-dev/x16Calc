@@ -40,43 +40,39 @@ Partial Class Calculator
         'Src
         '
         Me.Src.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Src.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Src.Font = New System.Drawing.Font("Lucida Console", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Src.Location = New System.Drawing.Point(112, 6)
-        Me.Src.MaxLength = 150
+        Me.Src.Location = New System.Drawing.Point(111, 7)
+        Me.Src.MaxLength = 20
         Me.Src.Name = "Src"
-        Me.Src.Size = New System.Drawing.Size(140, 19)
+        Me.Src.Size = New System.Drawing.Size(124, 20)
         Me.Src.TabIndex = 1
         '
         'Out
         '
         Me.Out.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Out.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Out.Font = New System.Drawing.Font("Lucida Console", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Out.Location = New System.Drawing.Point(112, 27)
-        Me.Out.MaxLength = 150
+        Me.Out.Location = New System.Drawing.Point(111, 29)
+        Me.Out.MaxLength = 70
         Me.Out.Name = "Out"
-        Me.Out.Size = New System.Drawing.Size(140, 19)
+        Me.Out.Size = New System.Drawing.Size(124, 20)
         Me.Out.TabIndex = 2
         '
         'Lbl1
         '
         Me.Lbl1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Lbl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Lbl1.Location = New System.Drawing.Point(9, 6)
+        Me.Lbl1.Location = New System.Drawing.Point(8, 7)
         Me.Lbl1.Name = "Lbl1"
-        Me.Lbl1.Size = New System.Drawing.Size(100, 19)
+        Me.Lbl1.Size = New System.Drawing.Size(100, 20)
         Me.Lbl1.TabIndex = 3
-        Me.Lbl1.Text = "INTEGER"
+        Me.Lbl1.Text = "INT32"
         Me.Lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Lbl2
         '
         Me.Lbl2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Lbl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Lbl2.Location = New System.Drawing.Point(9, 27)
+        Me.Lbl2.Location = New System.Drawing.Point(8, 29)
         Me.Lbl2.Name = "Lbl2"
-        Me.Lbl2.Size = New System.Drawing.Size(100, 19)
+        Me.Lbl2.Size = New System.Drawing.Size(100, 20)
         Me.Lbl2.TabIndex = 4
         Me.Lbl2.Text = "[X16] HEX"
         Me.Lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -85,9 +81,9 @@ Partial Class Calculator
         '
         Me.Lbl3.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Lbl3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Lbl3.Location = New System.Drawing.Point(9, 48)
+        Me.Lbl3.Location = New System.Drawing.Point(8, 51)
         Me.Lbl3.Name = "Lbl3"
-        Me.Lbl3.Size = New System.Drawing.Size(100, 19)
+        Me.Lbl3.Size = New System.Drawing.Size(100, 20)
         Me.Lbl3.TabIndex = 6
         Me.Lbl3.Text = "Format mask"
         Me.Lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -95,12 +91,11 @@ Partial Class Calculator
         'Mask
         '
         Me.Mask.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Mask.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Mask.Font = New System.Drawing.Font("Lucida Console", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Mask.Location = New System.Drawing.Point(112, 48)
+        Me.Mask.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Mask.Location = New System.Drawing.Point(111, 51)
         Me.Mask.MaxLength = 70
         Me.Mask.Name = "Mask"
-        Me.Mask.Size = New System.Drawing.Size(140, 19)
+        Me.Mask.Size = New System.Drawing.Size(124, 20)
         Me.Mask.TabIndex = 5
         Me.Mask.Text = "0x{*}"
         '
@@ -109,7 +104,7 @@ Partial Class Calculator
         Me._0x.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me._0x.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me._0x.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me._0x.Location = New System.Drawing.Point(9, 71)
+        Me._0x.Location = New System.Drawing.Point(8, 75)
         Me._0x.Name = "_0x"
         Me._0x.Size = New System.Drawing.Size(50, 20)
         Me._0x.TabIndex = 7
@@ -122,7 +117,7 @@ Partial Class Calculator
         Me._AMPH.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me._AMPH.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me._AMPH.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me._AMPH.Location = New System.Drawing.Point(58, 71)
+        Me._AMPH.Location = New System.Drawing.Point(57, 75)
         Me._AMPH.Name = "_AMPH"
         Me._AMPH.Size = New System.Drawing.Size(50, 20)
         Me._AMPH.TabIndex = 8
@@ -135,7 +130,7 @@ Partial Class Calculator
         Me._H.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me._H.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me._H.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me._H.Location = New System.Drawing.Point(9, 90)
+        Me._H.Location = New System.Drawing.Point(8, 94)
         Me._H.Name = "_H"
         Me._H.Size = New System.Drawing.Size(50, 20)
         Me._H.TabIndex = 9
@@ -148,7 +143,7 @@ Partial Class Calculator
         Me.Cls.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Cls.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.Cls.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Cls.Location = New System.Drawing.Point(58, 90)
+        Me.Cls.Location = New System.Drawing.Point(57, 94)
         Me.Cls.Name = "Cls"
         Me.Cls.Size = New System.Drawing.Size(50, 20)
         Me.Cls.TabIndex = 10
@@ -160,7 +155,7 @@ Partial Class Calculator
         '
         Me.UpperMode.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.UpperMode.AutoSize = True
-        Me.UpperMode.Location = New System.Drawing.Point(114, 92)
+        Me.UpperMode.Location = New System.Drawing.Point(113, 96)
         Me.UpperMode.Name = "UpperMode"
         Me.UpperMode.Size = New System.Drawing.Size(41, 17)
         Me.UpperMode.TabIndex = 11
@@ -173,7 +168,7 @@ Partial Class Calculator
         Me.ShortFormat.AutoSize = True
         Me.ShortFormat.Checked = True
         Me.ShortFormat.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ShortFormat.Location = New System.Drawing.Point(114, 73)
+        Me.ShortFormat.Location = New System.Drawing.Point(113, 77)
         Me.ShortFormat.Name = "ShortFormat"
         Me.ShortFormat.Size = New System.Drawing.Size(64, 17)
         Me.ShortFormat.TabIndex = 12
@@ -182,11 +177,11 @@ Partial Class Calculator
         '
         'ErrLbl
         '
-        Me.ErrLbl.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ErrLbl.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.ErrLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ErrLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.ErrLbl.ForeColor = System.Drawing.Color.Red
-        Me.ErrLbl.Location = New System.Drawing.Point(197, 73)
+        Me.ErrLbl.Location = New System.Drawing.Point(183, 77)
         Me.ErrLbl.Name = "ErrLbl"
         Me.ErrLbl.Size = New System.Drawing.Size(52, 34)
         Me.ErrLbl.TabIndex = 13
@@ -199,7 +194,7 @@ Partial Class Calculator
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(260, 121)
+        Me.ClientSize = New System.Drawing.Size(247, 118)
         Me.Controls.Add(Me.ErrLbl)
         Me.Controls.Add(Me.ShortFormat)
         Me.Controls.Add(Me.UpperMode)
@@ -213,11 +208,8 @@ Partial Class Calculator
         Me.Controls.Add(Me.Lbl1)
         Me.Controls.Add(Me.Out)
         Me.Controls.Add(Me.Src)
-        Me.HelpButton = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(276, 160)
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(263, 157)
         Me.Name = "Calculator"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

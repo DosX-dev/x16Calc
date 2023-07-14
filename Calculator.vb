@@ -1,20 +1,18 @@
 ﻿Imports System.ComponentModel
 Imports System.Diagnostics
 Imports System.Drawing
-Imports System
 Imports System.Text
-Imports System.Runtime.InteropServices
+Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports System.Windows.Forms
 Imports Microsoft.Win32
-Imports System.Numerics
 
 Public Class Calculator
     Dim ErrWarning As Thread,
         ErrMutex As Boolean
     Dim HexVar = "{*}"
     Private Sub Src_TextChanged(sender As Object, e As EventArgs) Handles Src.TextChanged
-        For Each Rpl In "!@#$%^&*()_~QWERTYUIOPASDFGHJKLZXCVNM "
+        For Each Rpl In "!@#$%^&*()_~QWERTYUIOPASDFGHJKLZXCVBNM "
             Src.Text = Replace(Src.Text.ToUpper, Rpl, String.Empty)
         Next
 
@@ -26,7 +24,7 @@ Public Class Calculator
         End If
     End Sub
 
-    Public Sub DoCalc_ToHex()
+    Private Sub DoCalc_ToHex()
         Try
             If Src.Text = String.Empty OrElse Src.Text = "-" Then
                 Out.Text = String.Empty
@@ -43,48 +41,42 @@ Public Class Calculator
         End Try
     End Sub
 
-    Public Sub DoCalc_ToInt()
-        If Out.Text = String.Empty Then
-            Src.Text = String.Empty
-            Exit Sub
+    Function ToX16(Num As Integer)
+        Dim Result As String = Num.ToString("x16")
+        If ShortFormat.Checked Then
+
+            For Each MIN In Result '0x001 => 0x1   [&H..]
+                If MIN = "0" AndAlso Result.Length > 1 Then
+                    Result = Result.Substring(1) ' 0x..1 => 0x1
+                Else
+                    Exit For
+                End If
+            Next
+
         End If
-        Dim Calc As String = Out.Text
-        For Each Rpl In "!@#$%^&*()QWRTYUIOPSGHJKLZXVNM\/?|[]{}~"
-            Calc = Replace(Calc.ToUpper, Rpl, "")
-        Next
-
-        Src.Text = BigInteger.Parse(Calc, System.Globalization.NumberStyles.HexNumber).ToString
-
-    End Sub
-
-    Function ToX16(num As String)
-        'Dim Result As String = Num.ToString("x16")
-        'If ShortFormat.Checked Then
-        '
-        '    For Each MIN In Result '0x001 => 0x1   [&H..]
-        '        If MIN = "0" AndAlso Result.Length > 1 Then
-        '            Result = Result.Substring(1) ' 0x..1 => 0x1
-        '        Else
-        '            Exit For
-        '        End If
-        '    Next
-        '
-        'End If
-        'Return Result
-        Return BigInteger.Parse(num).ToString(If(ShortFormat.Checked, "x", "x16"))
+        Return Result
     End Function
 
     Private Sub Out_TextChanged(sender As Object, e As EventArgs) Handles Out.TextChanged
-
         If Out.Focused Then
             Try
-                DoCalc_ToInt()
+                If Out.Text = String.Empty Then
+                    Src.Text = String.Empty
+                    Exit Sub
+                End If
+                Dim Calc = Out.Text
+                For Each Rpl In "!@#$%^&*()QWRTYUIOPSGHJKLZXVBNM\/?|[]{}~"
+                    Calc = Replace(Calc.ToUpper, Rpl, "")
+                Next
+
+                Src.Text = Convert.ToInt32(Calc, 16)
             Catch ex As Exception
                 VisualError()
                 Src.Text = String.Empty
             End Try
         End If
     End Sub
+
     Private Sub Mask_TextChanged(sender As Object, e As EventArgs) Handles Mask.TextChanged
         DoCalc_ToHex()
         _0x.Enabled = True
@@ -145,7 +137,7 @@ Public Class Calculator
     End Sub
 
     Private Sub Mask_KeyPress(sender As Object, e As Windows.Forms.KeyPressEventArgs) Handles Mask.KeyPress
-        If "EADFCB".Contains(CStr(e.KeyChar).ToUpper) Then
+        If "EADFC".Contains(CStr(e.KeyChar).ToUpper) Then
             VisualError()
             e.Handled = True
         Else
@@ -162,7 +154,7 @@ Public Class Calculator
             Exit Sub
         End If
 
-        If Not $"!@#$%^&*()/\|~EADFCB1234567890-_{ChrW(8)}".Contains(CStr(e.KeyChar).ToUpper) AndAlso
+        If Not $"!@#$%^&*()/\|~EADFC1234567890-_{ChrW(8)}".Contains(CStr(e.KeyChar).ToUpper) AndAlso
            Not Mask.Text.Contains(e.KeyChar) Then ' If KEYCHAR does not contain a character from the mask
             VisualError()
             e.Handled = True
@@ -204,21 +196,7 @@ Public Class Calculator
         End If
     End Sub
 
-    Private Sub Calculator_HelpButtonClicked(sender As Object, e As CancelEventArgs) Handles MyBase.HelpButtonClicked
-        Dim AboutMessage As New AboutWin
-        AboutMessage.ShowDialog(Me)
-        e.Cancel = True
-    End Sub
     Private Sub Calculator_FormClosing(sender As Object, e As Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Process.GetCurrentProcess().Kill()
-    End Sub
-
-    Private Sub Calculator_Shown(sender As Object, e As EventArgs) Handles Me.Shown ' AutoFocus (Args mode)
-        If Command.Contains("--hex") Then
-            Out.Focus()
-            Out.Select(Out.Text.Length, &H0)
-        Else
-            Src.Select(Src.Text.Length, &H0)
-        End If
     End Sub
 End Class
